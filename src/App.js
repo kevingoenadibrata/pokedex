@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navbar from "./Components/Navbar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BodyCss, MainContainerCss } from "./App.styles";
+import Browse from "./Routes/Browse";
+import Favorites from "./Routes/Favorites";
+import Details from "./Routes/Details";
+import { MyPokemonsProvider } from "./Context/MyPokemonsContext";
+import { defaultTheme } from "evergreen-ui";
 
 function App() {
+  console.log(defaultTheme);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <MyPokemonsProvider>
+        <BodyCss>
+          <MainContainerCss>
+            <Navbar />
+            <Switch>
+              <Route exact path="/" component={Browse} />
+              <Route exact path="/p/:pokemonNo" component={Details} />
+              <Route path="/my-pokemons" component={Favorites} />
+            </Switch>
+          </MainContainerCss>
+        </BodyCss>
+      </MyPokemonsProvider>
+    </Router>
   );
 }
 

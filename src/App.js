@@ -6,10 +6,8 @@ import Browse from "./Routes/Browse";
 import Favorites from "./Routes/Favorites";
 import Details from "./Routes/Details";
 import { MyPokemonsProvider } from "./Context/MyPokemonsContext";
-import { defaultTheme } from "evergreen-ui";
 
 function App() {
-  console.log(defaultTheme);
   return (
     <Router>
       <MyPokemonsProvider>

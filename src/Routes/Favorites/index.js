@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Loader from "../../Components/Loader";
 import { useMyPokemonsContext } from "../../Context/MyPokemonsContext";

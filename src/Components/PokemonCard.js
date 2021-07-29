@@ -1,14 +1,7 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { getPokeapiByUrl } from "../Configurations/Pokeapi";
-import { colors } from "../Constants/Colors";
-import {
-  PokemonNo,
-  SubtitleCss,
-  TitleCss,
-} from "../Constants/Typography.styles";
-import { useMyPokemonsContext } from "../Context/MyPokemonsContext";
+import { PokemonNo, TitleCss } from "../Constants/Typography.styles";
 import { capitalizeFront, padNumber } from "../Helpers/Strings";
 
 import {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BrowseContainerCss, PageTitleCss } from "./index.styles";
-import axios from "axios";
 import PokemonCard from "../../Components/PokemonCard";
 import Loader from "../../Components/Loader";
 import { useHistory, useLocation } from "react-router-dom";

@@ -8,3 +8,9 @@ export const padNumber = (n) => {
   let temp = n + 1000;
   return temp.toString().substr(1);
 };
+
+export const snakeToSpaced = (s) => {
+  let arr = s.split("-");
+  arr = arr.map((item) => capitalizeFront(item));
+  return arr.join(" ");
+};

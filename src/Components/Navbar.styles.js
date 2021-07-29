@@ -23,4 +23,11 @@ export const LogoCss = styled.img`
 export const PokeballIcon = styled.img`
   width: 25px;
   height: 25px;
+
+  cursor: pointer;
+
+  transition-duration: 100ms;
+  &:hover {
+    transform: rotate(25deg);
+  }
 `;

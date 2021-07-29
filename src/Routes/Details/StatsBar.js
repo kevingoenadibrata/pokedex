@@ -1,10 +1,11 @@
 import React from "react";
-import { StatsContainer, StatsValue } from "./StatsBar.styles";
+import { statsMapper } from "../../Constants/Mapper";
+import { StatsContainer, StatsTitle, StatsValue } from "./StatsBar.styles";
 
 const StatsBar = ({ val, title }) => {
   return (
     <div>
-      <h4>{title}</h4>
+      <StatsTitle>{statsMapper[title]}</StatsTitle>
       <StatsContainer>
         <StatsValue val={val} />
       </StatsContainer>

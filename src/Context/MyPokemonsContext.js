@@ -62,6 +62,16 @@ const MyPokemonsProvider = ({ children }) => {
     set("mypokemons", JSON.stringify({ pokemons: temp }));
   };
 
+  const countOwned = (id) => {
+    let count = 0;
+    for (let i = 0; i < pokemons.length; i++) {
+      if (parseInt(pokemons[i].pokemonNo) === id) {
+        count++;
+      }
+    }
+    return count;
+  };
+
   return (
     <MyPokemonsContext.Provider
       value={{
@@ -69,6 +79,7 @@ const MyPokemonsProvider = ({ children }) => {
         removePokemon,
         loading,
         pokemons,
+        countOwned,
       }}
     >
       {children}

@@ -1,18 +1,19 @@
 import React from "react";
-import { useMyPokemonsContext } from "../../Context/MyPokemonsContext";
-import { ButtonCss } from "./CatchButton.styles";
+import { CatchButtonElement, CatchButtonContainer } from "./CatchButton.styles";
 
-const CatchButton = ({ setAnimationState }) => {
-  const { addPokemon } = useMyPokemonsContext();
-
-  const handleClickAddToMyMoo = () => {
+const CatchButton = ({ setAnimationState, isDisabled }) => {
+  const handleClick = () => {
     setAnimationState("catch");
   };
-
   return (
-    <div>
-      <ButtonCss onClick={handleClickAddToMyMoo}>Add to MyMoo</ButtonCss>
-    </div>
+    <CatchButtonContainer>
+      <CatchButtonElement
+        isDisabled={isDisabled}
+        onClick={isDisabled ? null : handleClick}
+      >
+        {isDisabled ? "Catching..." : "Throw a Pokeball"}
+      </CatchButtonElement>
+    </CatchButtonContainer>
   );
 };
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ByKevin from "../../Components/ByKevin";
 import Loader from "../../Components/Loader";
 import { useMyPokemonsContext } from "../../Context/MyPokemonsContext";
 import { PageTitleCss } from "../Browse/index.styles";
@@ -22,6 +23,7 @@ const Favorites = () => {
           />
         ))}
       </MyPokemonsContainer>
+      <ByKevin />
     </MyMoosContainerCss>
   );
 };

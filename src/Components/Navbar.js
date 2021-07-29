@@ -1,9 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBoxOpen } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import Logo from "../Assets/logo.png";
 import { LogoCss, NavbarContainerCss, PokeballIcon } from "./Navbar.styles";
-import { colors } from "../Constants/Colors";
 import { useHistory } from "react-router-dom";
 import PokeballIconImg from "../Assets/pokeball-icon.png";
 

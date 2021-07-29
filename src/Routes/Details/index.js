@@ -25,6 +25,7 @@ import {
   getPokeapiByUrl,
   getPokemonByNumber,
 } from "../../Configurations/Pokeapi";
+import MovesetGroup from "./MovesetGroup";
 
 const Details = () => {
   const { pokemonNo } = useParams();
@@ -42,6 +43,7 @@ const Details = () => {
       const speciesRes = await getPokeapiByUrl(detailsRes?.species?.url);
 
       setDetails(detailsRes);
+      console.log(detailsRes);
 
       let speciesTemp = "";
       speciesRes.genera.forEach((item) => {
@@ -69,20 +71,24 @@ const Details = () => {
     }
   };
 
+  const resetState = () => {
+    setAnimationState("entry");
+  };
+
   const promptNickname = () => {
     setIsDialogShown(true);
   };
 
   const handleCloseComplete = () => {
     setIsDialogShown(false);
-    setAnimationState("entry");
+    resetState();
   };
 
   const handleAddPokemon = (nickname) => {
     addPokemon(nickname, pokemonNo);
     toaster.success(`${nickname} added to bag`);
     setIsDialogShown(false);
-    setAnimationState("entry");
+    resetState();
   };
 
   if (isLoading) {
@@ -112,6 +118,7 @@ const Details = () => {
           animationState={animationState}
           calculateCatchResults={calculateCatchResults}
           promptNickname={promptNickname}
+          resetState={resetState}
         />
       </SpriteContainer>
 
@@ -130,9 +137,13 @@ const Details = () => {
             ))}
           </TypeContainer>
 
-          <CatchButton setAnimationState={setAnimationState} />
+          <CatchButton
+            setAnimationState={setAnimationState}
+            isDisabled={animationState !== "entry"}
+          />
         </InnerTitleContainerCss>
         <Stats stats={details?.stats} />
+        <MovesetGroup moveset={details?.moves} />
       </TitleContainerCss>
     </DetailsContainerCss>
   );

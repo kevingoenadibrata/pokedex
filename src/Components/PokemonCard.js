@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { getPokeapiByUrl } from "../Configurations/Pokeapi";
 import { PokemonNo, TitleCss } from "../Constants/Typography.styles";
+import { useMyPokemonsContext } from "../Context/MyPokemonsContext";
 import { capitalizeFront, padNumber } from "../Helpers/Strings";
 
 import {
@@ -12,11 +13,15 @@ import {
   TypeContainer,
   Type,
   PokeballBg,
+  OwnedText,
+  PokeballOwnedSprite,
+  OwnedContainer,
 } from "./PokemonCard.styles";
 
 const PokemonCard = ({ data, i }) => {
   const history = useHistory();
   const [details, setDetails] = useState({});
+  const { countOwned } = useMyPokemonsContext();
 
   const getData = async () => {
     try {
@@ -37,6 +42,10 @@ const PokemonCard = ({ data, i }) => {
         <PokeballBg i={i} />
         <PosterCss poster={details?.sprites?.front_default}></PosterCss>
         <InnerCardCss>
+          <OwnedContainer>
+            <PokeballOwnedSprite />
+            <OwnedText>{countOwned(details?.id)}</OwnedText>
+          </OwnedContainer>
           <TitleCss>{capitalizeFront(details?.species?.name || "")}</TitleCss>
           <TypeContainer>
             {details?.types?.map((item) => (

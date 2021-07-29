@@ -16,6 +16,7 @@ const SpriteAnimated = ({
   sprite,
   calculateCatchResults,
   promptNickname,
+  resetState,
 }) => {
   switch (animationState) {
     case "entry":
@@ -40,9 +41,10 @@ const SpriteAnimated = ({
           <SpriteGrowing
             sprite={sprite}
             size="90vw"
-            onAnimationEnd={() =>
-              toaster.danger("Oh no! The Pokemon broke free")
-            }
+            onAnimationEnd={() => {
+              toaster.danger("Oh no! The Pokemon broke free");
+              resetState();
+            }}
           />
           <PokeballDisappear />
         </>

@@ -1,22 +1,32 @@
 import styled from "styled-components";
 import { colors } from "../../Constants/Colors";
 
-export const ButtonCss = styled.div`
-  background-color: ${colors.white};
+export const CatchButtonElement = styled.div`
+  background-color: ${(props) =>
+    props.isDisabled ? colors.white : colors.red};
+  color: ${(props) => (props.isDisabled ? colors.red : colors.white)};
+  border: 2px solid ${(props) => (props.isDisabled ? colors.red : colors.white)};
+  cursor: ${(props) => (props.isDisabled ? "not-allowed" : "pointer")};
+  opacity: ${(props) => (props.isDisabled ? 0.2 : 1)};
+
   padding: 8px 16px;
   border-radius: 8px;
-  color: ${colors.bluePrimary};
+  user-select: none;
+
   font-weight: 600;
   outline: none;
-  border: 2px solid ${colors.bluePrimary};
+
+  transition-duration: 500ms;
+  width: 80%;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const ActiveButtonCss = styled.div`
-  background-color: ${colors.bluePrimary};
-  padding: 8px 16px;
-  border-radius: 8px;
-  color: ${colors.white};
-  font-weight: 600;
-  outline: none;
-  border: 2px solid ${colors.white};
+export const CatchButtonContainer = styled.div`
+  display: flex;
+  margin-top: 32px;
+  justify-content: center;
 `;

@@ -2,7 +2,11 @@ import styled, { keyframes } from "styled-components";
 import { colors, typeColors } from "../../Constants/Colors";
 import PokeballImg from "../../Assets/pokeball-bg.png";
 import PokeballSpriteImg from "../../Assets/pokeball-sprite.png";
-import { SubtitleCss, TitleCss } from "../../Constants/Typography.styles";
+import {
+  PokemonNo,
+  SubtitleCss,
+  TitleCss,
+} from "../../Constants/Typography.styles";
 
 export const DetailsContainerCss = styled.div`
   padding: 64px 8px 0 8px;
@@ -172,4 +176,9 @@ export const PaginationContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin: 32px 0;
+`;
+
+export const PokemonNoDetails = styled(PokemonNo)`
+  position: static;
+  margin-right: 0;
 `;

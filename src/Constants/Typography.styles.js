@@ -17,4 +17,7 @@ export const PokemonNo = styled.h1`
   font-weight: 600;
   color: ${colors.muted};
   font-family: mono45-headline, monospace;
+  position: absolute;
+  margin-right: 16px;
+  right: 0;
 `;

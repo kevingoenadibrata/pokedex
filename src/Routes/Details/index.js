@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { toaster } from "evergreen-ui";
 import CatchButton from "./CatchButton";
 import Loader from "../../Components/Loader";
-import { PokemonNo } from "../../Constants/Typography.styles";
+import { PokemonNo, TitleCss } from "../../Constants/Typography.styles";
 import {
   DetailsContainerCss,
   InnerTitleContainerCss,
@@ -14,6 +14,7 @@ import {
   PokemonNameContainer,
   PokemonName,
   Species,
+  PokemonNoDetails,
 } from "./index.styles";
 import { Type, TypeContainer } from "../../Components/PokemonCard.styles";
 import Stats from "./Stats";
@@ -125,7 +126,7 @@ const Details = () => {
       <TitleContainerCss>
         <InnerTitleContainerCss>
           <PokemonNameContainer>
-            <PokemonNo>{padNumber(details?.id)}</PokemonNo>
+            <PokemonNoDetails>{padNumber(details?.id)}</PokemonNoDetails>
             <PokemonName>{capitalizeFront(details?.species?.name)}</PokemonName>
           </PokemonNameContainer>
 

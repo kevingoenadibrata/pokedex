@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { getPokeapiByUrl } from "../Configurations/Pokeapi";
 import { colors } from "../Constants/Colors";
 import {
   PokemonNo,
@@ -26,8 +27,8 @@ const PokemonCard = ({ data, i }) => {
 
   const getData = async () => {
     try {
-      const res = await axios.get(data.url);
-      setDetails(res.data);
+      const res = await getPokeapiByUrl(data.url);
+      setDetails(res);
     } catch {
       console.error("Error fetching data from PokeApi");
     }

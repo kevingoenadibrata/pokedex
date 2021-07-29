@@ -22,6 +22,10 @@ import { capitalizeFront, padNumber } from "../../Helpers/Strings";
 import SpriteAnimated from "./SpriteAnimated";
 import NicknameDialog from "./NicknameDialog";
 import { useMyPokemonsContext } from "../../Context/MyPokemonsContext";
+import {
+  getPokeapiByUrl,
+  getPokemonByNumber,
+} from "../../Configurations/Pokeapi";
 
 const Details = () => {
   const { pokemonNo } = useParams();
@@ -35,20 +39,18 @@ const Details = () => {
   const getData = async () => {
     setIsLoading(true);
     try {
-      const detailsRes = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${pokemonNo}`
-      );
+      const detailsRes = await getPokemonByNumber(pokemonNo);
+      const speciesRes = await getPokeapiByUrl(detailsRes?.species?.url);
 
-      const speciesRes = await axios.get(detailsRes?.data?.species?.url);
-
-      setDetails(detailsRes.data);
+      setDetails(detailsRes);
 
       let speciesTemp = "";
-      speciesRes.data.genera.forEach((item) => {
+      speciesRes.genera.forEach((item) => {
         if (item.language.name === "en") {
           speciesTemp = item.genus;
         }
       });
+
       setSpecies(speciesTemp);
     } catch {
       console.error("Error fetching data from PokeAPI");

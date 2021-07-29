@@ -19,6 +19,7 @@ import {
 
 import { useMyPokemonsContext } from "../../Context/MyPokemonsContext";
 import ReleaseConfirmationDialog from "./ReleaseConfirmationDialog";
+import { getPokemonByNumber } from "../../Configurations/Pokeapi";
 
 const MyPokemonCard = ({ pokemonNo, nickname, i, id }) => {
   const history = useHistory();
@@ -28,10 +29,8 @@ const MyPokemonCard = ({ pokemonNo, nickname, i, id }) => {
 
   const getData = async () => {
     try {
-      const res = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${pokemonNo}`
-      );
-      setDetails(res.data);
+      const res = await getPokemonByNumber(pokemonNo);
+      setDetails(res);
     } catch {
       console.error("Error fetching data from PokeApi");
     }

@@ -32,8 +32,8 @@ const PokemonCard = ({ data, i }) => {
 
   return (
     <CardStyled i={i} onClick={() => history.push(`/p/${details?.id}`)}>
+      <PokeballBgStyled i={i} />
       <InnerCardContainerStyled>
-        <PokeballBgStyled i={i} />
         <SpriteStyled sprite={details?.sprites?.front_default} size="80px" />
         <InformationContainerStyled>
           <Owned id={details?.id} />

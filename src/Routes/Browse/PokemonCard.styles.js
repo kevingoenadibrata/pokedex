@@ -1,7 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { colors } from "../../Constants/Colors";
 import PokeballImg from "../../Assets/pokeball-bg.png";
-import { PokeballSprite } from "../../Routes/Details/index.styles";
 
 const pokeballTurnAnimation = keyframes`
   from{
@@ -69,6 +68,9 @@ export const CardStyled = styled.div`
   position: relative;
 
   transform: scale(${(props) => props.cardSize}%);
+
+  -webkit-transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
 `;
 
 export const InformationContainerStyled = styled.div`

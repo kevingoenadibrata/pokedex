@@ -2,7 +2,10 @@ import styled from "styled-components";
 
 export const PageContainerStyled = styled.div`
   margin-top: 80px;
-  padding: 16px;
+  padding-bottom: 20vh;
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-left: 16px;
 `;
 
 export const MyPokemonsContainerStyled = styled.div`

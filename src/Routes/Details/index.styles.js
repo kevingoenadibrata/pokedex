@@ -48,6 +48,7 @@ const cardEntryAnimation = keyframes`
 export const CardStyled = styled.div`
   margin-top: -32px;
   padding: 24px;
+  padding-bottom: 20vh;
   background-color: white;
   width: 100%;
   min-height: 70vh;

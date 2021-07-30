@@ -10,7 +10,7 @@ export const TypeGroupContainer = styled.div`
 
 export const Type = styled(PStyled)`
   margin-right: 4px;
-  padding: 4px 16px;
+  padding: 4px ${(props) => (props.size === "sm" ? "8px" : "16px")};
   background-color: ${(props) => typeColors[props.type] || colors.gray300};
   color: ${(props) =>
     props.type === "unknown" ? colors.gray300 : colors.white};

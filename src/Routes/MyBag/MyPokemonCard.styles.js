@@ -46,6 +46,9 @@ export const CardStyled = styled.div`
   animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-delay: ${(props) => props.i * 100 + "ms"};
+
+  -webkit-transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
 `;
 
 export const ContainerStyled = styled.div`

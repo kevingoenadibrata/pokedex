@@ -9,5 +9,5 @@ export const PaginationContainerStyled = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 32px 0;
+  margin: 32px 0 20vh 0;
 `;

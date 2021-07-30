@@ -7,9 +7,10 @@ import {
   PokemonNo,
   PStyled,
 } from "../../Constants/Typography.styles";
+import { SpriteStyled } from "../../Components/Sprite.styles";
 
-export const DetailsContainerCss = styled.div`
-  padding: 64px 8px 0 8px;
+export const DetailsContainerStyled = styled.div`
+  padding: 128px 8px 0 8px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -39,20 +40,12 @@ export const DetailsContainerCss = styled.div`
   
 `;
 
-const cardSwingAnimation = keyframes`
-      0%{
-        transform: translateY(50px);
-        opacity: 0;
-      }
-
-      100%{
-        transform: translateY(0);
-        opacity: 1;
-      }
-
+const cardEntryAnimation = keyframes`
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 `;
 
-export const TitleContainerCss = styled.div`
+export const CardStyled = styled.div`
   margin-top: -32px;
   padding: 24px;
   background-color: white;
@@ -62,17 +55,13 @@ export const TitleContainerCss = styled.div`
   border: 5px solid ${colors.muted};
   z-index: 3;
 
-  animation-name: ${cardSwingAnimation};
+  animation-name: ${cardEntryAnimation};
   animation-duration: 1s;
   animation-fill-mode: forwards;
 `;
 
-export const InnerTitleContainerCss = styled.div`
+export const InformationContainerStyled = styled.div`
   margin-bottom: 8px;
-`;
-
-export const ButtonIconCss = styled.div`
-  margin-right: 8px;
 `;
 
 const shakeAnimation = keyframes`
@@ -98,21 +87,17 @@ const shakeAnimation = keyframes`
   }
 `;
 
-export const SpriteContainer = styled.div`
+export const SpriteContainerStyled = styled.div`
+  margin-top: -72px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 `;
 
-export const Sprite = styled.div`
-  width: ${(props) => props.size};
-  height: ${(props) => props.size};
+export const Sprite = styled(SpriteStyled)`
   max-width: 400px;
   max-height: 400px;
-  background: url(${(props) => props.sprite});
-  background-size: cover;
-  background-position: center;
-  image-rendering: pixelated;
 
   animation-name: ${shakeAnimation};
   animation-duration: 1s;
@@ -128,10 +113,11 @@ export const PokeballSprite = styled.div`
   background-image: url(${PokeballSpriteImg});
   background-size: cover;
   background-position: center;
+  image-rendering: pixelated;
   z-index: 1;
 `;
 
-export const PokeballBg = styled.div`
+export const DarkPokeballBgStyled = styled.div`
   background-image: url(${PokeballImg});
   background-size: cover;
   background-position: center;
@@ -144,7 +130,7 @@ export const PokeballBg = styled.div`
   transition-duration: 300ms;
 `;
 
-export const PokeballOverlayBg = styled.div`
+export const PokeballOverlayBgStyled = styled.div`
   background-color: #000000;
   position: absolute;
   z-index: 0;
@@ -155,7 +141,7 @@ export const PokeballOverlayBg = styled.div`
   border-radius: 50%;
 `;
 
-export const PokemonNameContainer = styled.div`
+export const PokemonNameContainerStyled = styled.div`
   display: flex;
   align-items: flex-end;
 `;
@@ -165,7 +151,7 @@ export const PokemonNameStyled = styled(H1Styled)`
   margin-bottom: 4px;
 `;
 
-export const Species = styled(PStyled)`
+export const SpeciesStyled = styled(PStyled)`
   margin-bottom: 4px;
   margin-top: -4px;
 `;

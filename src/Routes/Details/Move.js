@@ -1,13 +1,12 @@
-import React from "react";
 import { PStyled } from "../../Constants/Typography.styles";
 import { snakeToSpaced } from "../../Helpers/Strings";
-import { MoveContainer, MoveText } from "./Move.styles";
-const Move = ({ move, level, method }) => {
+import { MoveContainerStyled } from "./Move.styles";
+const Move = ({ move, level }) => {
   return (
-    <MoveContainer>
+    <MoveContainerStyled>
       <PStyled>{snakeToSpaced(move)}</PStyled>
       <PStyled>{level}</PStyled>
-    </MoveContainer>
+    </MoveContainerStyled>
   );
 };
 

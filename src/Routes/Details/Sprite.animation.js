@@ -53,56 +53,20 @@ export const SpriteHidden = styled(Sprite)`
 `;
 
 const shakingAnimation = keyframes`
+  18%   { transform: rotate(0deg)   translateX(0px);  }
+  20%   { transform: rotate(-20deg) translateX(-4px); }
+  27.5% { transform: rotate(10deg)  translateX(4px);  }
+  30%   { transform: rotate(0deg)   translateX(0px);  }
 
-  18%{
-    transform: rotate(0deg) translateX(0px);
-  }
+  48%   { transform: rotate(0deg)   translateX(0px);  }
+  50%   { transform: rotate(20deg)  translateX(4px);  }
+  57.5% { transform: rotate(-10deg) translateX(-4px); }
+  60%   { transform: rotate(0deg)   translateX(0px);  }
 
-  20%{
-    transform: rotate(-20deg) translateX(-4px);
-  }
-
-  27.5%{
-    transform: rotate(10deg) translateX(4px);
-  }
-
-  30%{
-    transform: rotate(0deg) translateX(0px);
-  }
-
-
-
-  48%{
-    transform: rotate(0deg) translateX(0px);
-  }
-
-  50%{
-    transform: rotate(20deg) translateX(4px);
-  }
-
-  57.5%{
-    transform: rotate(-10deg) translateX(-4px);
-  }
-
-  60%{
-    transform: rotate(0deg) translateX(0px);
-  }
-
-  78%{
-    transform: rotate(0deg) translateX(0px);
-  }
-
-  80%{
-    transform: rotate(-10deg) translateX(-4px);
-  }
-
-  87.5%{
-    transform: rotate(20deg) translateX(4px);
-  }
-
-  90%{
-    transform: rotate(0deg) translateX(0px);
-  }
+  78%   { transform: rotate(0deg)   translateX(0px);  }
+  80%   { transform: rotate(-10deg) translateX(-4px); }
+  87.5% { transform: rotate(20deg)  translateX(4px);  }
+  90%   { transform: rotate(0deg)   translateX(0px);  }
 `;
 
 export const PokeballShaking = styled(PokeballSprite)`

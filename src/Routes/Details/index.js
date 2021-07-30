@@ -1,24 +1,21 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toaster } from "evergreen-ui";
 import CatchButton from "./CatchButton";
 import Loader from "../../Components/Loader";
 import {
-  DetailsContainerCss,
-  InnerTitleContainerCss,
-  TitleContainerCss,
-  PokeballBg,
-  PokeballOverlayBg,
-  SpriteContainer,
-  PokemonNameContainer,
-  PokemonName,
-  Species,
-  PokemonNoDetails,
+  DetailsContainerStyled,
+  InformationContainerStyled,
+  CardStyled,
+  DarkPokeballBgStyled,
+  PokeballOverlayBgStyled,
+  SpriteContainerStyled,
+  PokemonNameContainerStyled,
+  SpeciesStyled,
   PokemonNameStyled,
   PokemonNoDetailsStyled,
 } from "./index.styles";
-import { Type, TypeContainer } from "../Browse/PokemonCard.styles";
-import Stats from "./Stats";
+import StatsGroup from "./StatsGroup";
 import { capitalizeFront, padNumber } from "../../Helpers/Strings";
 import SpriteAnimated from "./SpriteAnimated";
 import NicknameDialog from "./NicknameDialog";
@@ -29,6 +26,7 @@ import {
 } from "../../Configurations/Pokeapi";
 import MovesetGroup from "./MovesetGroup";
 import TypeGroup from "../../Components/TypeGroup";
+import Error404 from "../Error404";
 
 const Details = () => {
   const { pokemonNo } = useParams();
@@ -38,6 +36,7 @@ const Details = () => {
   const [animationState, setAnimationState] = useState("entry");
   const [isDialogShown, setIsDialogShown] = useState(false);
   const { addPokemon } = useMyPokemonsContext();
+  const [isError, setIsError] = useState(false);
 
   const getData = async () => {
     setIsLoading(true);
@@ -58,6 +57,7 @@ const Details = () => {
       setSpecies(speciesTemp);
     } catch {
       console.error("Error fetching data from PokeAPI");
+      setIsError(true);
     }
     setIsLoading(false);
   };
@@ -96,14 +96,18 @@ const Details = () => {
 
   if (isLoading) {
     return (
-      <DetailsContainerCss>
+      <DetailsContainerStyled>
         <Loader />
-      </DetailsContainerCss>
+      </DetailsContainerStyled>
     );
   }
 
+  if (isError) {
+    return <Error404 />;
+  }
+
   return (
-    <DetailsContainerCss
+    <DetailsContainerStyled
       type={details?.types[0].type.name}
       secondaryType={details?.types[1]?.type?.name}
     >
@@ -113,9 +117,9 @@ const Details = () => {
         onCloseComplete={handleCloseComplete}
         onConfirm={handleAddPokemon}
       />
-      <SpriteContainer>
-        <PokeballBg />
-        <PokeballOverlayBg />
+      <SpriteContainerStyled>
+        <DarkPokeballBgStyled />
+        <PokeballOverlayBgStyled />
         <SpriteAnimated
           sprite={details?.sprites?.front_default}
           animationState={animationState}
@@ -123,32 +127,29 @@ const Details = () => {
           promptNickname={promptNickname}
           resetState={resetState}
         />
-      </SpriteContainer>
+      </SpriteContainerStyled>
 
-      <TitleContainerCss>
-        <InnerTitleContainerCss>
-          <PokemonNameContainer>
+      <CardStyled>
+        <InformationContainerStyled>
+          <PokemonNameContainerStyled>
             <PokemonNoDetailsStyled>
               {padNumber(details?.id)}
             </PokemonNoDetailsStyled>
             <PokemonNameStyled>
               {capitalizeFront(details?.species?.name)}
             </PokemonNameStyled>
-          </PokemonNameContainer>
-
-          <Species>{species}</Species>
-
+          </PokemonNameContainerStyled>
+          <SpeciesStyled>{species}</SpeciesStyled>
           <TypeGroup types={details?.types} />
-
           <CatchButton
             setAnimationState={setAnimationState}
             isDisabled={animationState !== "entry"}
           />
-        </InnerTitleContainerCss>
-        <Stats stats={details?.stats} />
+        </InformationContainerStyled>
+        <StatsGroup stats={details?.stats} />
         <MovesetGroup moveset={details?.moves} />
-      </TitleContainerCss>
-    </DetailsContainerCss>
+      </CardStyled>
+    </DetailsContainerStyled>
   );
 };
 

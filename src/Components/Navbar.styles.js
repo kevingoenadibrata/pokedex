@@ -14,6 +14,7 @@ export const NavbarContainerStyled = styled.div`
   background-color: ${colors.white};
   box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
   z-index: 5;
+  border-radius: 0 0 20px 20px;
 `;
 
 export const LogoStyled = styled.img`

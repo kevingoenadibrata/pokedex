@@ -44,7 +44,7 @@ const animation = keyframes`
   }
 `;
 
-export const CardCss = styled.div`
+export const CardStyled = styled.div`
   padding-right: 16px;
   padding-left: 8px;
   padding-top: 8px;
@@ -71,47 +71,16 @@ export const CardCss = styled.div`
   transform: scale(${(props) => props.cardSize}%);
 `;
 
-export const InnerCardCss = styled.div`
+export const InformationContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-left: 8px;
 `;
 
-export const PosterCss = styled.div`
-  width: 80px;
-  height: 80px;
-  background: url(${(props) => props.poster});
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
-  overflow: hidden;
-  image-rendering: pixelated;
-`;
-
-export const LeftCard = styled.div`
+export const InnerCardContainerStyled = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
   z-index: 1;
-`;
-
-export const OwnedContainer = styled.div`
-  display: flex;
-  align-items: center;
-  padding-left: 2px;
-`;
-
-export const OwnedText = styled.p`
-  font-size: 0.7rem;
-  font-weight: 600;
-  margin-top: 1px;
-`;
-
-export const PokeballOwnedSprite = styled(PokeballSprite)`
-  width: 10px;
-  height: 10px;
-  display: block;
-  position: static;
-  margin-right: 4px;
 `;

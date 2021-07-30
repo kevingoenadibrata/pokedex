@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../Constants/Colors";
 
-export const StatsContainer = styled.div`
+export const StatsContainerStyled = styled.div`
   height: 3px;
   width: 100%;
   background-color: ${colors.gray100};
@@ -10,11 +10,9 @@ export const StatsContainer = styled.div`
   margin-bottom: 8px;
 `;
 
-export const StatsValue = styled.div`
+export const StatsValueStyled = styled.div`
   height: 3px;
   width: ${(props) => (props.val * 100) / 255}%;
   border-radius: 0 10px 10px 0;
   background-color: ${colors.blue300};
 `;
-
-export const StatsTitle = styled.p``;

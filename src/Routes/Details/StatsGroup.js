@@ -1,17 +1,16 @@
-import React from "react";
 import { H1Styled } from "../../Constants/Typography.styles";
-import { StatsGroupContainer, StatsGroupTitle } from "./Stats.styles";
+import { StatsGroupContainerStyled } from "./StatsGroup.styles";
 import StatsBar from "./StatsBar";
 
-const Stats = ({ stats }) => {
+const StatsGroup = ({ stats }) => {
   return (
-    <StatsGroupContainer>
+    <StatsGroupContainerStyled>
       <H1Styled>Base Stats</H1Styled>
       {stats?.map((item) => (
         <StatsBar title={item.stat.name} val={item.base_stat} />
       ))}
-    </StatsGroupContainer>
+    </StatsGroupContainerStyled>
   );
 };
 
-export default Stats;
+export default StatsGroup;

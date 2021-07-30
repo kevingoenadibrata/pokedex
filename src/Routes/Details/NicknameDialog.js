@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Dialog, TextInput, toaster } from "evergreen-ui";
-import { DialogContainer } from "./NicknameDialog.styles";
+import { DialogContainerStyled } from "./NicknameDialog.styles";
+import { PStyled } from "../../Constants/Typography.styles";
 
 const NicknameDialog = ({
   isShown,
@@ -26,14 +27,14 @@ const NicknameDialog = ({
       onConfirm={handleConfirm}
       confirmLabel="Add to Bag"
     >
-      <DialogContainer>
-        <p>{pokemonName}'s nickname?</p>
+      <DialogContainerStyled>
+        <PStyled>{pokemonName}'s nickname?</PStyled>
         <TextInput
           onChange={(e) => setNicknameBuf(e.target.value)}
           value={nicknameBuf}
           maxlength={16}
         />
-      </DialogContainer>
+      </DialogContainerStyled>
     </Dialog>
   );
 };

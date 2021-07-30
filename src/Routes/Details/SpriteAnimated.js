@@ -1,4 +1,3 @@
-import React from "react";
 import { Sprite } from "./index.styles";
 import {
   PokeballShaking,

@@ -1,17 +1,20 @@
 import styled from "styled-components";
 import { colors } from "./Constants/Colors";
+import BgImg from "./Assets/bg-pattern.png";
 
-export const BodyCss = styled.div`
+export const BodyStyled = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: ${colors.gray100};
+  background-image: url(${BgImg});
+  background-repeat: repeat;
+  background-size: 250px;
 `;
 
-export const MainContainerCss = styled.div`
+export const MainContainerStyled = styled.div`
   width: 100%;
   max-width: 550px;
   background-color: ${colors.white};
-  min-height: 100vh;
-  overflow-y: hidden;
+  height: 100vh;
+  overflow-y: scroll;
 `;

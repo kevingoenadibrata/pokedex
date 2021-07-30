@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../Constants/Colors";
 
-export const CatchButtonElement = styled.div`
+export const CatchButtonElementStyled = styled.div`
   background-color: ${(props) =>
     props.isDisabled ? colors.white : colors.red};
   color: ${(props) => (props.isDisabled ? colors.red : colors.white)};
@@ -25,7 +25,7 @@ export const CatchButtonElement = styled.div`
   justify-content: center;
 `;
 
-export const CatchButtonContainer = styled.div`
+export const CatchButtonContainerStyled = styled.div`
   display: flex;
   margin-top: 32px;
   justify-content: center;

@@ -1,7 +1,7 @@
 import React from "react";
 import Move from "./Move";
 import { MovesetGroupContainer } from "./MovesetGroup.styles";
-import { StatsGroupTitle } from "./Stats.styles";
+import { H1Styled } from "../../Constants/Typography.styles";
 
 const MovesetGroup = ({ moveset }) => {
   const levelGroup = moveset
@@ -17,7 +17,7 @@ const MovesetGroup = ({ moveset }) => {
 
   return (
     <MovesetGroupContainer>
-      <StatsGroupTitle>Moveset Learned by Level</StatsGroupTitle>
+      <H1Styled>Moveset Learned by Level</H1Styled>
       {levelGroup.map((item) => (
         <Move
           move={item.move.name}

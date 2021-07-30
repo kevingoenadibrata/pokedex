@@ -1,15 +1,16 @@
 import React from "react";
 import { statsMapper } from "../../Constants/Mapper";
+import { PStyled } from "../../Constants/Typography.styles";
 import { StatsContainer, StatsTitle, StatsValue } from "./StatsBar.styles";
 
 const StatsBar = ({ val, title }) => {
   return (
-    <div>
-      <StatsTitle>{statsMapper[title]}</StatsTitle>
+    <>
+      <PStyled>{statsMapper[title]}</PStyled>
       <StatsContainer>
         <StatsValue val={val} />
       </StatsContainer>
-    </div>
+    </>
   );
 };
 

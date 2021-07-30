@@ -1,11 +1,12 @@
 import React from "react";
+import { H1Styled } from "../../Constants/Typography.styles";
 import { StatsGroupContainer, StatsGroupTitle } from "./Stats.styles";
 import StatsBar from "./StatsBar";
 
 const Stats = ({ stats }) => {
   return (
     <StatsGroupContainer>
-      <StatsGroupTitle>Base Stats</StatsGroupTitle>
+      <H1Styled>Base Stats</H1Styled>
       {stats?.map((item) => (
         <StatsBar title={item.stat.name} val={item.base_stat} />
       ))}

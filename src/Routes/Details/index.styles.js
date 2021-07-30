@@ -3,9 +3,9 @@ import { colors, typeColors } from "../../Constants/Colors";
 import PokeballImg from "../../Assets/pokeball-bg.png";
 import PokeballSpriteImg from "../../Assets/pokeball-sprite.png";
 import {
+  H1Styled,
   PokemonNo,
-  SubtitleCss,
-  TitleCss,
+  PStyled,
 } from "../../Constants/Typography.styles";
 
 export const DetailsContainerCss = styled.div`
@@ -160,25 +160,17 @@ export const PokemonNameContainer = styled.div`
   align-items: flex-end;
 `;
 
-export const PokemonName = styled(TitleCss)`
-  font-size: 1.3rem;
+export const PokemonNameStyled = styled(H1Styled)`
   margin-left: 8px;
   margin-bottom: 4px;
 `;
 
-export const Species = styled(SubtitleCss)`
+export const Species = styled(PStyled)`
   margin-bottom: 4px;
   margin-top: -4px;
 `;
 
-export const PaginationContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 32px 0;
-`;
-
-export const PokemonNoDetails = styled(PokemonNo)`
+export const PokemonNoDetailsStyled = styled(PokemonNo)`
   position: static;
   margin-right: 0;
 `;

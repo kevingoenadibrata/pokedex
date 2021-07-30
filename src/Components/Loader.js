@@ -1,12 +1,11 @@
-import React from "react";
 import { BarLoader } from "react-spinners";
-import { LoaderContainerCss } from "./Loader.styles";
+import { LoaderContainerStyled } from "./Loader.styles";
 
 const Loader = () => {
   return (
-    <LoaderContainerCss>
-      <BarLoader color="white" />
-    </LoaderContainerCss>
+    <LoaderContainerStyled>
+      <BarLoader />
+    </LoaderContainerStyled>
   );
 };
 

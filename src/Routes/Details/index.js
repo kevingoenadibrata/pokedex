@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { toaster } from "evergreen-ui";
 import CatchButton from "./CatchButton";
 import Loader from "../../Components/Loader";
-import { PokemonNo, TitleCss } from "../../Constants/Typography.styles";
 import {
   DetailsContainerCss,
   InnerTitleContainerCss,
@@ -15,8 +14,10 @@ import {
   PokemonName,
   Species,
   PokemonNoDetails,
+  PokemonNameStyled,
+  PokemonNoDetailsStyled,
 } from "./index.styles";
-import { Type, TypeContainer } from "../../Components/PokemonCard.styles";
+import { Type, TypeContainer } from "../Browse/PokemonCard.styles";
 import Stats from "./Stats";
 import { capitalizeFront, padNumber } from "../../Helpers/Strings";
 import SpriteAnimated from "./SpriteAnimated";
@@ -27,6 +28,7 @@ import {
   getPokemonByNumber,
 } from "../../Configurations/Pokeapi";
 import MovesetGroup from "./MovesetGroup";
+import TypeGroup from "../../Components/TypeGroup";
 
 const Details = () => {
   const { pokemonNo } = useParams();
@@ -126,17 +128,17 @@ const Details = () => {
       <TitleContainerCss>
         <InnerTitleContainerCss>
           <PokemonNameContainer>
-            <PokemonNoDetails>{padNumber(details?.id)}</PokemonNoDetails>
-            <PokemonName>{capitalizeFront(details?.species?.name)}</PokemonName>
+            <PokemonNoDetailsStyled>
+              {padNumber(details?.id)}
+            </PokemonNoDetailsStyled>
+            <PokemonNameStyled>
+              {capitalizeFront(details?.species?.name)}
+            </PokemonNameStyled>
           </PokemonNameContainer>
 
           <Species>{species}</Species>
 
-          <TypeContainer>
-            {details?.types.map((item) => (
-              <Type type={item.type.name}>{item.type.name.toUpperCase()}</Type>
-            ))}
-          </TypeContainer>
+          <TypeGroup types={details?.types} />
 
           <CatchButton
             setAnimationState={setAnimationState}

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Dialog, TextInput } from "evergreen-ui";
+import { Dialog } from "evergreen-ui";
+import { PStyled } from "../../Constants/Typography.styles";
 
 const ReleaseConfirmationDialog = ({
   isShown,
@@ -16,9 +16,7 @@ const ReleaseConfirmationDialog = ({
       confirmLabel="Release"
       intent="danger"
     >
-      <div>
-        <p>Are you sure you want to release {pokemonNickname} ?</p>
-      </div>
+      <PStyled>Are you sure you want to release {pokemonNickname}?</PStyled>
     </Dialog>
   );
 };

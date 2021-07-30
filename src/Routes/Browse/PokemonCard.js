@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { getPokeapiByUrl } from "../Configurations/Pokeapi";
-import { PokemonNo, TitleCss } from "../Constants/Typography.styles";
-import { useMyPokemonsContext } from "../Context/MyPokemonsContext";
-import { capitalizeFront, padNumber } from "../Helpers/Strings";
+import { SpriteStyled } from "../../Components/Sprite.styles";
+import TypeGroup from "../../Components/TypeGroup";
+import { getPokeapiByUrl } from "../../Configurations/Pokeapi";
+import { PokemonNo, H1Styled } from "../../Constants/Typography.styles";
+import { useMyPokemonsContext } from "../../Context/MyPokemonsContext";
+import { capitalizeFront, padNumber } from "../../Helpers/Strings";
 
 import {
   CardCss,
-  PosterCss,
   InnerCardCss,
   LeftCard,
-  TypeContainer,
-  Type,
-  PokeballBg,
+  PokeballBgStyled,
   OwnedText,
   PokeballOwnedSprite,
   OwnedContainer,
@@ -39,19 +38,15 @@ const PokemonCard = ({ data, i }) => {
   return (
     <CardCss i={i} onClick={() => history.push(`/p/${details?.id}`)}>
       <LeftCard>
-        <PokeballBg i={i} />
-        <PosterCss poster={details?.sprites?.front_default}></PosterCss>
+        <PokeballBgStyled i={i} />
+        <SpriteStyled sprite={details?.sprites?.front_default} size="80px" />
         <InnerCardCss>
           <OwnedContainer>
             <PokeballOwnedSprite />
             <OwnedText>{countOwned(details?.id)}</OwnedText>
           </OwnedContainer>
-          <TitleCss>{capitalizeFront(details?.species?.name || "")}</TitleCss>
-          <TypeContainer>
-            {details?.types?.map((item) => (
-              <Type type={item.type.name}>{item.type.name.toUpperCase()}</Type>
-            ))}
-          </TypeContainer>
+          <H1Styled>{capitalizeFront(details?.species?.name || "")}</H1Styled>
+          <TypeGroup types={details?.types} />
         </InnerCardCss>
       </LeftCard>
       <PokemonNo>{padNumber(details?.id)}</PokemonNo>

@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
 import ByKevin from "../../Components/ByKevin";
-import Loader from "../../Components/Loader";
+import { H1Styled } from "../../Constants/Typography.styles";
 import { useMyPokemonsContext } from "../../Context/MyPokemonsContext";
-import { PageTitleCss } from "../Browse/index.styles";
-import { MyMoosContainerCss, MyPokemonsContainer } from "./index.styles";
+import { PageContainerStyled, MyPokemonsContainerStyled } from "./index.styles";
 import MyPokemonCard from "./MyPokemonCard";
 
-const Favorites = () => {
+const MyBag = () => {
   const { pokemons } = useMyPokemonsContext();
 
   return (
-    <MyMoosContainerCss>
-      <PageTitleCss>My Pokemons</PageTitleCss>
-      <MyPokemonsContainer>
+    <PageContainerStyled>
+      <H1Styled>My Bag</H1Styled>
+      <MyPokemonsContainerStyled>
         {pokemons.map((item, index) => (
           <MyPokemonCard
             key={item.id}
@@ -22,10 +20,10 @@ const Favorites = () => {
             nickname={item.nickname}
           />
         ))}
-      </MyPokemonsContainer>
+      </MyPokemonsContainerStyled>
       <ByKevin />
-    </MyMoosContainerCss>
+    </PageContainerStyled>
   );
 };
 
-export default Favorites;
+export default MyBag;

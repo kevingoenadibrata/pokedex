@@ -1,15 +1,9 @@
 import styled from "styled-components";
 import { colors } from "./Colors";
 
-export const SubtitleCss = styled.p`
+export const PStyled = styled.p`
   font-size: 0.8em;
   opacity: 0.5;
-`;
-
-export const TitleCss = styled.h4`
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0;
 `;
 
 export const PokemonNo = styled.h1`
@@ -20,4 +14,9 @@ export const PokemonNo = styled.h1`
   position: absolute;
   margin-right: 16px;
   right: 0;
+`;
+
+export const H1Styled = styled.h4`
+  font-size: 1.2rem;
+  font-weight: 600;
 `;

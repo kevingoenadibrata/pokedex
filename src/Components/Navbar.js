@@ -1,20 +1,24 @@
-import React from "react";
-import Logo from "../Assets/logo.png";
-import { LogoCss, NavbarContainerCss, PokeballIcon } from "./Navbar.styles";
-import { useHistory } from "react-router-dom";
+import LogoImg from "../Assets/logo.png";
 import PokeballIconImg from "../Assets/pokeball-icon.png";
+import {
+  LogoStyled,
+  NavbarContainerStyled,
+  PokeballIconStyled,
+  MyBagContainerStyled,
+  MyBagTextStyled,
+} from "./Navbar.styles";
+import { useHistory } from "react-router-dom";
 
 const Navbar = () => {
   const history = useHistory();
   return (
-    <NavbarContainerCss>
-      <LogoCss src={Logo} alt="logo" onClick={() => history.push("/")} />
-      <PokeballIcon
-        src={PokeballIconImg}
-        alt="pokeball"
-        onClick={() => history.push("/my-pokemons")}
-      />
-    </NavbarContainerCss>
+    <NavbarContainerStyled>
+      <LogoStyled src={LogoImg} alt="logo" onClick={() => history.push("/")} />
+      <MyBagContainerStyled onClick={() => history.push("/my-pokemons")}>
+        <PokeballIconStyled src={PokeballIconImg} alt="pokeball" />
+        <MyBagTextStyled>MY BAG</MyBagTextStyled>
+      </MyBagContainerStyled>
+    </NavbarContainerStyled>
   );
 };
 

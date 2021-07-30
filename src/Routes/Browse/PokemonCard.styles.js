@@ -1,8 +1,7 @@
 import styled, { keyframes } from "styled-components";
-import { colors, typeColors } from "../Constants/Colors";
-import { SubtitleCss } from "../Constants/Typography.styles";
-import PokeballImg from "../Assets/pokeball-bg.png";
-import { PokeballSprite } from "../Routes/Details/index.styles";
+import { colors } from "../../Constants/Colors";
+import PokeballImg from "../../Assets/pokeball-bg.png";
+import { PokeballSprite } from "../../Routes/Details/index.styles";
 
 const pokeballTurnAnimation = keyframes`
   from{
@@ -14,7 +13,7 @@ const pokeballTurnAnimation = keyframes`
   }
 `;
 
-export const PokeballBg = styled.div`
+export const PokeballBgStyled = styled.div`
   background-image: url(${PokeballImg});
   background-size: cover;
   background-position: center;
@@ -22,7 +21,7 @@ export const PokeballBg = styled.div`
   z-index: 0;
   height: 200px;
   width: 200px;
-  transform: translateX(-60px) rotate(-360deg);
+  transform: translateX(-60px);
   opacity: 0.1;
 
   transition-duration: 300ms;
@@ -68,6 +67,8 @@ export const CardCss = styled.div`
   animation-delay: ${(props) => props.i * 100 + "ms"};
 
   position: relative;
+
+  transform: scale(${(props) => props.cardSize}%);
 `;
 
 export const InnerCardCss = styled.div`
@@ -93,24 +94,6 @@ export const LeftCard = styled.div`
   align-items: center;
   height: 100%;
   z-index: 1;
-`;
-
-export const TypeContainer = styled.div`
-  display: flex;
-  align-items: center;
-  z-index: 1;
-`;
-
-export const Type = styled(SubtitleCss)`
-  margin-right: 4px;
-  padding: 4px 16px;
-  background-color: ${(props) => typeColors[props.type]};
-  color: white;
-  border-radius: 50px;
-  font-size: 0.6rem;
-  font-weight: 600;
-  z-index: 1;
-  opacity: 1;
 `;
 
 export const OwnedContainer = styled.div`

@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
-export const BrowseContainerCss = styled.div`
+export const BrowseContainerStyled = styled.div`
   margin-top: 80px;
   padding: 16px;
 `;
 
-export const PageTitleCss = styled.div`
-  margin-bottom: 16px;
+export const PaginationContainerStyled = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 32px 0;
 `;

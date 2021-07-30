@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { capitalizeFront } from "../../Helpers/Strings";
 import {
-  CardCss,
-  Sprite,
-  InnerCardCss,
-  TypeContainer,
-  Type,
-  PokeballBg,
-  Nickname,
-  PokemonName,
-  SpriteContainer,
-  ReleaseButton,
-  DetailsButton,
-  Container,
+  CardStyled,
+  InfoContainerStyled,
+  MyPokeballBgStyled,
+  NicknameStyled,
+  PokemonNameStyled,
+  SpriteContainerStyled,
+  ReleaseButtonStyled,
+  DetailsButtonStyled,
+  ContainerStyled,
 } from "./MyPokemonCard.styles";
 
 import { useMyPokemonsContext } from "../../Context/MyPokemonsContext";
 import ReleaseConfirmationDialog from "./ReleaseConfirmationDialog";
 import { getPokemonByNumber } from "../../Configurations/Pokeapi";
+import TypeGroup from "../../Components/TypeGroup";
+import { SpriteStyled } from "../../Components/Sprite.styles";
 
 const MyPokemonCard = ({ pokemonNo, nickname, i, id }) => {
   const history = useHistory();
@@ -49,40 +48,38 @@ const MyPokemonCard = ({ pokemonNo, nickname, i, id }) => {
   };
 
   return (
-    <CardCss i={i}>
+    <CardStyled i={i}>
       <ReleaseConfirmationDialog
         isShown={isReleaseDialogShown}
         onConfirm={handleRelease}
         onCloseComplete={handleCloseComplete}
         pokemonNickname={nickname}
       />
-      <Container>
-        <SpriteContainer>
-          <PokeballBg i={i} />
-          <Sprite poster={details?.sprites?.front_default}></Sprite>
-        </SpriteContainer>
 
-        <InnerCardCss>
-          <Nickname>{nickname}</Nickname>
-          <PokemonName>
+      <ContainerStyled>
+        <SpriteContainerStyled>
+          <MyPokeballBgStyled i={i} />
+          <SpriteStyled sprite={details?.sprites?.front_default} size="120px" />
+        </SpriteContainerStyled>
+
+        <InfoContainerStyled>
+          <NicknameStyled>{nickname}</NicknameStyled>
+          <PokemonNameStyled>
             {capitalizeFront(details?.species?.name || "")}
-          </PokemonName>
-          <TypeContainer>
-            {details?.types?.map((item) => (
-              <Type type={item.type.name}>{item.type.name.toUpperCase()}</Type>
-            ))}
-          </TypeContainer>
-        </InnerCardCss>
-      </Container>
-      <Container>
-        <DetailsButton onClick={() => history.push(`/p/${details?.id}`)}>
+          </PokemonNameStyled>
+          <TypeGroup size="sm" types={details?.types} />
+        </InfoContainerStyled>
+      </ContainerStyled>
+
+      <ContainerStyled>
+        <DetailsButtonStyled onClick={() => history.push(`/p/${details?.id}`)}>
           Details
-        </DetailsButton>
-        <ReleaseButton onClick={() => setIsReleaseDialogShown(true)}>
+        </DetailsButtonStyled>
+        <ReleaseButtonStyled onClick={() => setIsReleaseDialogShown(true)}>
           Release
-        </ReleaseButton>
-      </Container>
-    </CardCss>
+        </ReleaseButtonStyled>
+      </ContainerStyled>
+    </CardStyled>
   );
 };
 
